@@ -8,25 +8,31 @@ import cors from "cors";
 import Razorpay from "razorpay";
 import axios from "axios";
 
-const url = `http://localhost:5000`;
-const interval = 30000;
+// const url = `http://localhost:5000`;
+// const interval = 30000;
 
-function reloadWebsite() {
-  axios
-    .get(url)
-    .then((response) => {
-      console.log("website reloded");
-    })
-    .catch((error) => {
-      console.error(`Error : ${error.message}`);
-    });
-}
+// function reloadWebsite() {
+//   axios
+//     .get(url)
+//     .then((response) => {
+//       console.log("website reloded");
+//     })
+//     .catch((error) => {
+//       console.error(`Error : ${error.message}`);
+//     });
+// }
 
-setInterval(reloadWebsite, interval);
+// setInterval(reloadWebsite, interval);
 
 dotenv.config();
 
-connectDB().then(() => console.log("DB connected"));
+// connectDB().then(() => console.log("DB connected"));
+try {
+  await connectDB();
+  console.log("DB connected");
+} catch (err) {
+  console.error("DB Error:", err);
+}
 
 export const instance = new Razorpay({
   key_id: process.env.Razorpay_Key!,
