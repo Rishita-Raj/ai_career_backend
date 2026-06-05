@@ -6,23 +6,23 @@ import aiRoutes from "./routes/ai.js";
 import paymentRoutes from "./routes/payment.js";
 import cors from "cors";
 import Razorpay from "razorpay";
-// import axios from "axios";
+import axios from "axios";
 
-// const url = `http://localhost:5000`;
-// const interval = 30000;
+const url = `https://ai-career-backend-tzvt.onrender.com`;
+const interval = 30000;
 
-// function reloadWebsite() {
-//   axios
-//     .get(url)
-//     .then((response) => {
-//       console.log("website reloded");
-//     })
-//     .catch((error) => {
-//       console.error(`Error : ${error.message}`);
-//     });
-// }
+function reloadWebsite() {
+  axios
+    .get(url)
+    .then((response) => {
+      console.log("website reloded");
+    })
+    .catch((error) => {
+      console.error(`Error : ${error.message}`);
+    });
+}
 
-// setInterval(reloadWebsite, interval);
+setInterval(reloadWebsite, interval);
 
 dotenv.config();
 
