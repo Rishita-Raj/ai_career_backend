@@ -6,7 +6,7 @@ import aiRoutes from "./routes/ai.js";
 import paymentRoutes from "./routes/payment.js";
 import cors from "cors";
 import Razorpay from "razorpay";
-import axios from "axios";
+// import axios from "axios";
 // const url = `http://localhost:5000`;
 // const interval = 30000;
 // function reloadWebsite() {
@@ -21,13 +21,8 @@ import axios from "axios";
 // }
 // setInterval(reloadWebsite, interval);
 dotenv.config();
-// connectDB().then(() => console.log("DB connected"));
-try {
-  await connectDB();
-  console.log("DB connected");
-} catch (err) {
-  console.error("DB Error:", err);
-}
+connectDB().then(() => console.log("DB connected"));
+
 export const instance = new Razorpay({
     key_id: process.env.Razorpay_Key,
     key_secret: process.env.Razorpay_Secret,
